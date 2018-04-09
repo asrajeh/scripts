@@ -12,7 +12,7 @@ fi
 mkdir -p quran
 cd quran
 
-if [ ! -f readrs ]; then
+if [ ! -f readers ]; then
   wget http://everyayah.com/data/status.php
   cat status.php|sed "s/^[ \t]*//"|grep 'href="/data/[A-Za-z_0-9-]*/" target="_blank">GO' | cut -d'/' -f3 > readers
 fi
