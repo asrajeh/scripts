@@ -1,11 +1,11 @@
 #!/bin/bash
 # A script to download from everyayah.com
 # written by Abdullah Alrajeh
-# ./everyayah.sh <ayah> <surah>
+# ./everyayah.sh <surah> <ayah>
 # For example: ./everyayah.sh 001 001
 
 if [ "$#" -ne 2 ]; then
-  echo "./everyayah.sh <ayah> <surah>"
+  echo "./everyayah.sh <surah> <ayah>"
   exit 1
 fi
 
@@ -28,4 +28,3 @@ do
   wget http://www.everyayah.com/data/$r/$1$2.mp3
   cd ..
 done
-
