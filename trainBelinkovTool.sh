@@ -1,5 +1,5 @@
 #!/bin/bash
-# a script training Belinkov’s tool
+# a script for training Belinkov’s tool
 # https://github.com/boknilev/diacritization
 
 cd $HOME/diacritization
