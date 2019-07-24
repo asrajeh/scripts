@@ -66,7 +66,7 @@ times = [r*step_duration for r in edges(window_silence)]
 
 for i in range(0, len(times), 2):
   if(i+1<len(times)): print(times[i], times[i+1])
-  else: print(times[i], -1)
+  else: print(times[i], len(samples)/float(sample_rate))
 
 '''
 # plot times for debugging
