@@ -5,7 +5,8 @@ import sys
 if len(sys.argv) < 2:
 	print('Usage: python {} <1|2>'.format(sys.argv[0]))
 	exit()
-
+	
+# direction: 1=arabic->bw, 2=bw->arabic
 direction = sys.argv[1]
 
 buck2uni = {"'": u"\u0621", # hamza-on-the-line
