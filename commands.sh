@@ -1,6 +1,9 @@
 # extract the first paper in a pdf file as an image
 convert -density 100 paper.pdf[0] - | convert -resize 56 - paper.jpg
 
+# file.txt: ISO-8859 text, with CRLF line terminators
+iconv -f WINDOWS-1256 -t UTF-8 file.txt
+
 # split audio on silence
 sox in.wav out.wav silence 1 0.1 0.1% 1 0.1 0.1% : newfile : restart
 
