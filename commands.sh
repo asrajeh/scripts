@@ -8,6 +8,9 @@ iconv -f CP1256 -t UTF-8 file.txt
 # split audio on silence
 sox in.wav out.wav silence 1 0.1 0.1% 1 0.1 0.1% : newfile : restart
 
+# convert raw format to wav file
+sox -r 16000 -e signed -b 16 -c 1 file.raw file.wav
+
 # print lines between two patterns
 awk '/pattern1/ {p=1}; p; /pattern2/ {p=0}' file
 
