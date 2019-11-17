@@ -3,7 +3,7 @@
 # Written by Abdullah Alrajeh
 
 # https://metacpan.org/pod/Module::Build
-# wget https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4229.tar.gz
+wget https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4229.tar.gz
 tar zxvf Module-Build-0.4229.tar.gz
 cd Module-Build-0.4229
 perl Build.PL
@@ -13,7 +13,7 @@ perl Build.PL
 cd ..
 
 # https://metacpan.org/pod/Encode::Arabic::Buckwalter
-# wget https://cpan.metacpan.org/authors/id/S/SM/SMRZ/Encode-Arabic-14.2.tar.gz
+wget https://cpan.metacpan.org/authors/id/S/SM/SMRZ/Encode-Arabic-14.2.tar.gz
 tar zxvf Encode-Arabic-14.2.tar.gz
 cd Encode-Arabic-14.2
 perl Build.PL
@@ -21,3 +21,6 @@ perl Build.PL
 ./Build test
 ./Build install
 cd ..
+
+wget https://raw.githubusercontent.com/asrajeh/scripts/master/buckwalter.pl
+chmod +x buckwalter.pl
