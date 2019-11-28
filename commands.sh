@@ -15,6 +15,9 @@ for f in *.raw; do sox -r 16000 -e signed -b 16 -c 1 $f ${f%.raw}.wav; done
 # print lines between two patterns
 awk '/pattern1/ {p=1}; p; /pattern2/ {p=0}' file
 
+# numeric-sort of a file according to a specific field
+sort -n -t'_' -k6 file
+
 # save it in .bashrc or .profile
 extract () {
     if [ -f $1 ] ; then
