@@ -18,6 +18,10 @@ awk '/pattern1/ {p=1}; p; /pattern2/ {p=0}' file
 # numeric-sort of a file according to a specific field
 sort -n -t'_' -k6 file
 
+# How to convert \uXXXX unicode to UTF-8
+# sudo apt-get install uni2ascii
+echo '\u0623\u0645' | ascii2uni -a U -q
+
 # save it in .bashrc or .profile
 extract () {
     if [ -f $1 ] ; then
