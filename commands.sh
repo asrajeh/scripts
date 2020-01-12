@@ -27,7 +27,7 @@ ASR="https://asrajeh.ddns.net:8890/client/dynamic/recognize"
 echo -e $(curl -k -T file.wav $ASR)
 out=`curl -k -T file.wav $ASR`
 echo -e $out
-echo $out | sed "s/.*utterance\": \"//g; s/\"}], \"id\".*//g" | ascii2uni -a U -q
+echo $out | cut -d'"' -f8 | ascii2uni -a U -q
 
 # save it in .bashrc or .profile
 extract () {
