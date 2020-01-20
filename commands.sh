@@ -12,6 +12,9 @@ sox in.wav out.wav silence 1 0.1 0.1% 1 0.1 0.1% : newfile : restart
 sox -r 16000 -e signed -b 16 -c 1 file.raw file.wav
 for f in *.raw; do sox -r 16000 -e signed -b 16 -c 1 $f ${f%.raw}.wav; done
 
+# trim a second from the start and end of wav file
+sox input.wav output.wav trim 1 trim 0 -1
+
 # print lines between two patterns
 awk '/pattern1/ {p=1}; p; /pattern2/ {p=0}' file
 
