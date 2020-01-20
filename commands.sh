@@ -18,6 +18,9 @@ sox input.wav output.wav trim 1 trim 0 -1
 # print lines between two patterns
 awk '/pattern1/ {p=1}; p; /pattern2/ {p=0}' file
 
+# Using multiple delimiters in awk
+echo 'In my opinion, it is good. Let us try it' | awk -F'[.,]' '{for(i=1;i<=NF;i++) print $i}'
+
 # numeric-sort of a file according to a specific field
 sort -n -t'_' -k6 file
 
