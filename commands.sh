@@ -31,11 +31,11 @@ echo '\u0623\u0645' | ascii2uni -a U -q
 # Replace one char with two chars لآ
 cat file | sed "s/$(printf $b '\ufef5')/$(printf $b '\u0644\u0622')/g"
 # Replace one char with two chars لأ
-cat file | sed "s/$(printf $b '\ufef5')/$(printf $b '\u0644\u0623')/g"
+cat file | sed "s/$(printf $b '\ufef7')/$(printf $b '\u0644\u0623')/g"
 # Replace one char with two chars لإ
-cat file | sed "s/$(printf $b '\ufef5')/$(printf $b '\u0644\u0625')/g"
+cat file | sed "s/$(printf $b '\ufef9')/$(printf $b '\u0644\u0625')/g"
 # Replace one char with two chars لا
-cat file | sed "s/$(printf $b '\ufef5')/$(printf $b '\u0644\u0627')/g"
+cat file | sed "s/$(printf $b '\ufefb')/$(printf $b '\u0644\u0627')/g"
 
 # Remove zero width char from a file
 sed -i "s/$(printf $b '\ufeff')//g" file
