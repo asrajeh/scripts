@@ -28,6 +28,13 @@ sort -n -t'_' -k6 file
 # sudo apt-get install uni2ascii
 echo '\u0623\u0645' | ascii2uni -a U -q
 
+# Replace one char ﻵ with two chars
+echo 'اﻵن' | sed 's/ﻵ/لآ/g'
+echo 'اﻵن' | sed "s/$(printf $b '\ufef5')/$(printf $b '\u0644\u0622')/g"
+
+# Remove zero width char from a file
+sed -i "s/$(printf $b '\ufeff')//g" file
+
 # How to send a wav file to my ASR demo from command line
 ASR="https://asrajeh.ddns.net:8890/client/dynamic/recognize"
 echo -e $(curl -k -T file.wav $ASR)
