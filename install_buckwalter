@@ -2,6 +2,9 @@
 # This installs required Perl Modules to run buckwalter.pl
 # Written by Abdullah Alrajeh
 
+# To install inc::latest - required
+cpanm inc::latest
+
 # https://metacpan.org/pod/Module::Build
 wget https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4229.tar.gz
 tar zxvf Module-Build-0.4229.tar.gz
