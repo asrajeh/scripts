@@ -40,6 +40,9 @@ cat file | sed "s/$(printf $b '\ufefb')/$(printf $b '\u0644\u0627')/g"
 # Remove zero width char from a file
 sed -i "s/$(printf $b '\ufeff')//g" file
 
+# run Kaldi gpu-based image
+sudo docker run --gpus 1 -it --rm -v ~/local_dir:/opt/dir kaldiasr/kaldi:gpu-latest bash
+
 # How to send a wav file to my ASR demo from command line
 ASR="https://asrajeh.ddns.net:8890/client/dynamic/recognize"
 echo -e $(curl -k -T file.wav $ASR)
