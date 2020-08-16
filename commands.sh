@@ -40,6 +40,9 @@ cat file | sed "s/$(printf $b '\ufefb')/$(printf $b '\u0644\u0627')/g"
 # Remove zero width char from a file
 sed -i "s/$(printf $b '\ufeff')//g" file
 
+#### Test nvidia-smi with the latest official CUDA image
+docker run --gpus all nvidia/cuda:10.0-base nvidia-smi
+
 # run Kaldi gpu-based image
 sudo docker run --gpus 1 -it --rm -v ~/local_dir:/opt/dir kaldiasr/kaldi:gpu-latest bash
 
