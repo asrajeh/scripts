@@ -46,6 +46,9 @@ docker run --gpus all nvidia/cuda:10.0-base nvidia-smi
 # run Kaldi gpu-based image
 sudo docker run --gpus 1 -it --rm -v ~/local_dir:/opt/dir kaldiasr/kaldi:gpu-latest bash
 
+# save running container as image
+docker commit c3f279d17e0a  svendowideit/testimage:version3
+
 # How to send a wav file to my ASR demo from command line
 ASR="https://asrajeh.ddns.net:8890/client/dynamic/recognize"
 echo -e $(curl -k -T file.wav $ASR)
