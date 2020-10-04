@@ -46,6 +46,12 @@ while read -n 1 char; do echo "$char"; done < file | sort -u
 # remove lines do not contain Arabic chars from a file
 sed -i '/^[^ء-ي]*$/d' file
 
+# extract emails from PST archive (MS Outlook Personal Folders)
+# sudo apt install pst-utils
+readpst -D -S -8 archive.pst
+# just text witout attachments
+readpst -D -S -8 -a noattach archive.pst
+
 #### Test nvidia-smi with the latest official CUDA image
 docker run --gpus all nvidia/cuda:10.0-base nvidia-smi
 
