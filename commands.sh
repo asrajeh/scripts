@@ -46,6 +46,9 @@ while read -n 1 char; do echo "$char"; done < file | sort -u
 # remove lines do not contain Arabic chars from a file
 sed -i '/^[^ء-ي]*$/d' file
 
+# print all lines that have space in the second charachter
+awk '{if(substr($0,2,1)==" ") print $0}' file
+
 # extract emails from PST archive (MS Outlook Personal Folders)
 # sudo apt install pst-utils
 readpst -D -S -8 archive.pst
