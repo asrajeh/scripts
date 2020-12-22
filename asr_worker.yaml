@@ -1,0 +1,48 @@
+# Configuration file for kaldi-gstreamer-server
+# Written by Abdullah Alrajeh, Dec 2020
+
+use-nnet2: True
+decoder:
+    # All the properties nested here correspond to the kaldinnet2onlinedecoder GStreamer plugin properties.
+    # Use gst-inspect-1.0 ./libgstkaldionline2.so kaldinnet2onlinedecoder to discover the available properties
+    use-threaded-decoder:  true
+    nnet-mode : 3
+    model : exp/chain/tdnn_1a_sp/final.mdl
+    word-syms : exp/chain/tree_a_sp/graph/words.txt
+    fst : exp/chain/tree_a_sp/graph/HCLG.fst
+    mfcc-config : conf/mfcc_hires.conf
+    ivector-extraction-config : exp/nnet3/ivectors_train_sp_hires/conf/ivector_extractor.conf
+    phone-syms: exp/chain/tree_a_sp/graph/phones.txt
+    word-boundary-file: exp/chain/tree_a_sp/graph/phones/word_boundary.int
+    max-active: 10000
+    beam: 10.0
+    lattice-beam: 6.0
+    acoustic-scale: 0.4
+    do-endpointing : true
+    endpoint-silence-phones : "1:2:3:4:5"
+    traceback-period-in-secs: 0.25
+    chunk-length-in-secs: 0.25
+    num-nbest: 10
+out-dir: tmp
+
+use-vad: False
+silence-timeout: 10
+
+# convert Buckwalter output to Arabic
+post-processor: perl -CSD -Mutf8 -npe "BEGIN {use IO::Handle; STDOUT->autoflush(1);} tr/'|>&<}AbptvjHxd*rzs\$SDTZEg_fqklmnhwYyFNKaui~o\`{/\N{U+0621}\N{U+0622}\N{U+0623}\N{U+0624}\N{U+0625}\N{U+0626}\N{U+0627}\N{U+0628}\N{U+0629}\N{U+062A}\N{U+062B}\N{U+062C}\N{U+062D}\N{U+062E}\N{U+062F}\N{U+0630}\N{U+0631}\N{U+0632}\N{U+0633}\N{U+0634}\N{U+0635}\N{U+0636}\N{U+0637}\N{U+0638}\N{U+0639}\N{U+063A}\N{U+0640}\N{U+0641}\N{U+0642}\N{U+0643}\N{U+0644}\N{U+0645}\N{U+0646}\N{U+0647}\N{U+0648}\N{U+0649}\N{U+064A}\N{U+064B}\N{U+064C}\N{U+064D}\N{U+064E}\N{U+064F}\N{U+0650}\N{U+0651}\N{U+0652}\N{U+0670}\N{U+0671}/;"
+
+logging:
+    version : 1
+    disable_existing_loggers: False
+    formatters:
+        simpleFormater:
+            format: '%(asctime)s - %(levelname)7s: %(name)10s: %(message)s'
+            datefmt: '%Y-%m-%d %H:%M:%S'
+    handlers:
+        console:
+            class: logging.StreamHandler
+            formatter: simpleFormater
+            level: DEBUG
+    root:
+        level: DEBUG
+        handlers: [console]
