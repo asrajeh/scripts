@@ -49,6 +49,9 @@ sed -i '/^[^ء-ي]*$/d' file
 # print all lines that have space in the second charachter
 awk '{if(substr($0,2,1)==" ") print $0}' file
 
+# how to kill all processes by name
+pkill -f my_pattern
+
 # extract emails from PST archive (MS Outlook Personal Folders)
 # sudo apt install pst-utils
 readpst -D -S -8 archive.pst
