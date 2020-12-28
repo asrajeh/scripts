@@ -49,6 +49,10 @@ sed -i '/^[^ء-ي]*$/d' file
 # print all lines that have space in the second charachter
 awk '{if(substr($0,2,1)==" ") print $0}' file
 
+# Arabic text normalization (alef & ta marbota)
+sed -i 's/[أإآ]/ا/g; s/ة/ه/g' file
+sed -i 's/[><|]/A/g; s/p/h/g' file
+
 # how to kill all processes by name
 pkill -f my_pattern
 
