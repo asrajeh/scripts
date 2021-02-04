@@ -53,6 +53,9 @@ awk '{if(substr($0,2,1)==" ") print $0}' file
 sed -i 's/[أإآ]/ا/g; s/ة/ه/g' file
 sed -i 's/[><|]/A/g; s/p/h/g' file
 
+# find all png files when list is too long
+for f in ls *; do if [ "${f: -4}" == ".png" ]; then echo $f; fi; done
+
 # how to kill all processes by name
 pkill -f my_pattern
 
