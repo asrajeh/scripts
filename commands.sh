@@ -14,7 +14,7 @@ for f in *.raw; do sox -r 16000 -e signed -b 16 -c 1 $f ${f%.raw}.wav; done
 
 # convert sph to wav
 sph2pipe=$KALDI_ROOT/tools/sph2pipe_v2.5/sph2pipe
-$sph2pipe -f wav input.sph output.wav
+$sph2pipe -f wav -p input.sph output.wav
 
 # trim a second from the start and end of wav file
 sox input.wav output.wav trim 1 trim 0 -1
