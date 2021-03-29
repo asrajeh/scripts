@@ -85,6 +85,9 @@ out=`curl -k -T file.wav $ASR`
 echo -e $out
 echo $out | cut -d'"' -f8 | ascii2uni -a U -q
 
+# find total of silence in a CTM file (more than 5 seconds)
+cat file.ctm.resolved | awk '{curr=$3; if(curr-prev>5) sum+=curr-prev; prev=$3+$4;}END{print sum}'
+
 # save it in .bashrc or .profile
 extract () {
     if [ -f $1 ] ; then
