@@ -88,6 +88,9 @@ echo $out | cut -d'"' -f8 | ascii2uni -a U -q
 # find total of silence in a CTM file (more than 5 seconds)
 cat file.ctm.resolved | awk '{curr=$3; if(curr-prev>5) sum+=curr-prev; prev=$3+$4;}END{print sum}'
 
+# process transcription files
+for f in *.txt; do id=`basename ${f%.txt}`; cat $f | awk -v id=$id '{s=!s; for(i=1; i<=NF;i++) print id" "s" "$i}'; done > file
+
 # save it in .bashrc or .profile
 extract () {
     if [ -f $1 ] ; then
