@@ -31,6 +31,9 @@ printf "%s 1 %.2f %.2f %s\n", $1, start, duration, word
 word=""
 duration=0}
 
+if(substr($NF,2,2)=="_S")
+printf "%s 1 %.2f %.2f %s\n", $1, $3, $4, substr($NF,1,1)
+
 if(flag){
 word=word""substr($NF,1,1)
 duration+=$4}
