@@ -97,6 +97,9 @@ awk '!seen[$0]++' filename
 # remove carriage return
 sed -i 's/\r//g' file
 
+# convert string to hexadecimal
+echo -n "Hello" | od -A n -t x1
+
 # save it in .bashrc or .profile
 extract () {
     if [ -f $1 ] ; then
