@@ -45,6 +45,7 @@ cat file | sed "s/$(printf $b '\ufefb')/$(printf $b '\u0644\u0627')/g"
 sed -i "s/$(printf $b '\ufeff')//g" file
 
 # Remove ARABIC LETTER SUPERSCRIPT ALEF
+# https://jrgraphix.net/r/Unicode/0600-06FF
 echo "ذٰلكم" | sed "s/$(printf $b '\u0670')//g"
 
 # extract uniqe chars from a file
