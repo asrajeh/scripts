@@ -44,6 +44,9 @@ cat file | sed "s/$(printf $b '\ufefb')/$(printf $b '\u0644\u0627')/g"
 # Remove zero width char from a file
 sed -i "s/$(printf $b '\ufeff')//g" file
 
+# Remove ARABIC LETTER SUPERSCRIPT ALEF
+echo "ذٰلكم" | sed "s/$(printf $b '\u0670')//g"
+
 # extract uniqe chars from a file
 while read -n 1 char; do echo "$char"; done < file | sort -u
 
