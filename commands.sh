@@ -104,6 +104,9 @@ sed -i 's/\r//g' file
 # convert string to hexadecimal
 echo -n "Hello" | od -A n -t x1
 
+# search files by text
+grep -rnw '/path/to/somewhere/' -e 'pattern'
+
 # save it in .bashrc or .profile
 extract () {
     if [ -f $1 ] ; then
